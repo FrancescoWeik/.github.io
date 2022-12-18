@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge" />
+	<title>newWebsite</title>
+	<style>
+		html {
+			height:100%;
+		}
+		body {
+			background-color:#FFF;
+			margin:0;
+			height:100%;
+		}
+
+		.CardsCard{
+			box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.3);
+			background: rgba(255, 255, 255, 0.07);
+			/*overflow:hidden;*/
+			border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+			border-radius: 30px;
+			/*flex-direction: flex-start;*/
+			flex-direction: column;
+			justify-content: flex-start;
+			align-items: center;
+			border-radius: 10px;
+			min-height: 350px;
+			padding: 15px;
+			position:relative;
+			overflow:auto;
+			box-shadow: 0 1px 3px rgba(0,0,0,0,2);
+			transition: all 0.2s ease in-out;
+			text-align:center;
+		}
+
+		.CardsIcon{
+			height: auto;
+			max-width: 50%;
+			margin-bottom: 10px;
+		}
+
+		.CardsH1{
+			font-size: 2.5rem;
+			color: #fff;
+			margin-bottom: 64px;
+
+			@media screen and (max-width: 480px){
+				font-size: 2rem
+			}
+		}
+
+		.CardsH2{
+			font-size: 1rem;
+			margin-bottom: 10px;
+			color: #fff;
+		}
+
+		.CardsP{
+			font-size: 1rem;
+			text-align: center;
+			color: #fff;
+		}
+
+		.CardTextContainer{
+			text-align: center;
+			bottom: 0;
+			margin-bottom: 35px;
+			position: absolute;
+			@media screen and (max-width: 768px){
+				position:relative;
+			}
+		}
+
+		body{
+			background:#222;
+		}
+
+		.secondOverall{
+			margin:0;
+			padding:0;
+			box-sizing: border-box;
+		} /*FORSE SI PUç TOGLIERE*/
+
+		.overallContainer{
+			display:flex;
+			align-items:center;
+			justify-content:center;
+			/*min-height: 100vh;*/
+			padding: 0 35px;
+		}
+
+		.wrapper{
+			max-width:1000px;
+			position:relative;
+		}
+
+		.wrapper i{
+			background: #fff;
+			height: 46px;
+			width:46px;
+			text-align:center;
+			line-height:46px;
+			border-radius:50px;
+			cursor:pointer;
+			font-size:1.2rem;
+			position:absolute;
+			top:50%;
+			transform: translateY(-50%);
+		}
+
+		.wrapper i:first-child{
+			left: -23px;
+			display:none;
+			z-index:2;
+		}
+
+		.wrapper i:last-child{
+			right: -23px;
+			z-index:2;
+		}
+
+		.wrapper .carousel{
+			white-space: nowrap;
+			cursor: pointer;
+			overflow:hidden;
+			scroll-behavior: smooth;
+		}
+
+		.carousel.dragging{
+			cursor:grab;
+			scroll-behavior: auto;
+		}
+
+		.carousel.dragging .CardsCard{
+			pointer-events:none;
+		}
+
+		.carousel .CardsCard{
+			min-height: 350px;
+			max-width:280px;
+			width: calc(100%/3);
+			display: inline-block;
+			white-space:normal;
+			margin-left:14px;
+		}
+
+		.carousel .CardsCard:first-child{
+			margin-left:0px;
+		}
+
+		.prevent-select {
+			-webkit-user-select: none;
+			-khtml-user-select: none;
+			-moz-user-select: none;
+			-o-user-select: none;
+			user-select: none;
+		}
+
+		.prevent-drag{
+			pointer-events: none;
+		}
+
+		@media screen and (max-width:900px){
+			.carousel .CardsCard{
+				width: calc(100%/2);
+			}
+			.overallContainer{
+				width:450px;
+			}
+		}
+
+		@media screen and (max-width:550px){
+			.carousel .CardsCard{
+				width: 100%;
+			}
+		}
+		@media screen and (max-width:450px){
+			.overallContainer{
+				width:400px;
+			}
+		}
+.titleContact span:hover{
+    /*
+    togliere questa parte per eliminare l'animazione hover*/
+    animation-fill-mode: NONE;
+    opacity:1;
+    color: black;
+    bottom: -0.2em;
+    /*               */
+    /*
+    Animazione del titolo*/
+}
+
+.titleContact span{
+    position: relative;
+}
+
+.form-container{
+  width: 400px;
+  display:inline-block;
+  margin:auto;
+  margin-top:25px;
+}
+
+.name-form{
+  width: 48%;
+}
+
+.form-control-name{
+  width: 100%;
+  color: white;
+  height: 40px;
+  border:none;
+  background: black;
+  padding-left: 5px;
+  z-index: 10;
+}
+
+.form-control-name:focus{
+  outline: none;
+  border-bottom: 2px solid black;
+  opacity: 100%
+}
+
+.form-control-email:focus{
+  outline: none;
+  border-bottom: 2px solid black;
+  opacity: 100%
+}
+
+.email-form{
+  margin-left:4%;
+  width: 48%;
+}
+
+.form-control-email{
+  width:100%;
+  padding-left: 5px;
+  height: 40px;
+  color: white;
+  border:none;
+  background: black;
+  z-index: 10;
+}
+
+.subject-form{
+  width: 100%;
+  margin-top: 3%;
+}
+
+.form-control-subject{
+  width: 100%;
+  color: rgb(229, 51, 200);
+  height: 40px;
+  border:none;
+  background: black;
+  padding-left: 5px;
+  z-index: 10;
+}
+
+.form-control-subject:focus{
+  outline: none;
+  border-bottom: 2px solid black;
+  opacity: 100%
+}
+
+.message-form{
+  width: 100%;
+  margin-top: 3%;
+}
+
+.form-control-message{
+  width: 100%;
+  height: 100px;
+  margin-bottom: 3%;
+  color: white;
+  border:none;
+  background: black;
+  padding-left: 5px;
+  z-index: 10;
+}
+
+.form-control-message:focus{
+  outline: none;
+  border-bottom: 2px solid black;
+  opacity: 100%
+}
+
+.form-input-btn{
+  margin-top: 5%;
+  width: 102%;
+  text-align: center;
+  margin:0 auto;
+  display:block;
+  background-color: black;
+  border:none;
+  height: 40px;
+  color: rgb(229, 51, 200);
+  z-index: 10;
+  cursor:pointer;
+  pointer-events:auto;
+}
+
+.form-input-btn:hover{
+	background-color:#222;
+}
+
+@media all and (max-width: 550px) {
+  .form-container{
+    width: 300px;
+  }
+}
+
+@media all and (max-width: 400px) {
+  .form-container{
+    width: 300px;
+    text-align:center;
+    margin:auto;
+  }
+}
+	</style>
+	<!-- copy these lines to your document head: -->
+
+	<meta name="viewport" content="user-scalable=yes, initial-scale=1.0, width=375" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+	<!-- end copy -->
+  </head>
+  <body onload="initEverything()">
+	<!-- copy these lines to your document: -->
+
+	<div id="newwebsite_hype_container" class="HYPE_document" style="margin:auto;position:relative;width:100%;height:100%;overflow:hidden;">
+		<script type="text/javascript" charset="utf-8" src="newWebsite.hyperesources/newwebsite_hype_generated_script.js?77079"></script>
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+	</div>
+
+	<!-- end copy -->
+	
+
+
+	<!-- text content for search engines: -->
+
+	<div style="display:none" aria-hidden=true>
+
+		<div>Projects</div>
+		<div>Welcome</div>
+		<div>About</div>
+		<div>Curriculum</div>
+		<div>Contact
+</div>
+		<div>Hello, I'm Francesco Weikmann and I graduated in computer science in the 15th june 2022.
+I've always been interested in new technologies.
+I like to try new things and push my limits, for that reason I created this website, tried to create different videogame demos and I'm studying different programs on my own (flutter, unity3D, photoshop, react...)
+</div>
+		<div>Download the curriculum pdf
+</div>
+		<div>Reference
+</div>
+		<div>Contact</div>
+
+	</div>
+
+	<!-- end text content: -->
+
+  </body>
+  <script>
+
+
+	function initEverything(){
+		initProjectPage();
+		initContactPage();
+		initCurriculumPage();
+	}
+
+	function initProjectPage(){
+		var containerProject = document.getElementById("containerProjects");
+		console.log(containerProject);
+		containerProject.innerHTML = ` 
+		<div class="overallContainer" style = "display:flex; padding:0 35px;">
+    	<div class="secondOverall" style = "padding: 0; margin:0; box-sizing:border-box;">
+			<div class="wrapper">
+				<i id="left" class="fa-solid fa-angle-left" style="background:white; line-height: 46px; text-align:center; font-size:1.2rem; font-family: Font Awesome 6 Free; font-weight: 900; font-style:normal"></i>
+				<div class="carousel">
+					<div class = "CardsCard prevent-select" draggable = "false" id="biking-improver">
+						<img class = "CardsIcon prevent-drag" src="./croppedyellow-modified.png"/>
+						<div class = "CardTextContainer" style="text-align:center">
+							<h2 class = "CardsH2"> Biking-Improver  </h2>
+							<p class = "CardsP"> A Web Application that placed second in the OSS4SDGG challenge organized by United Nations and European Commission that I developed during my internship at FBK </p>
+						</div>
+					</div>
+					<div class = "CardsCard prevent-select" draggable = "false" id="my-videogame">
+						<img class = "CardsIcon prevent-drag" src="./logoAnim_0000_Frame-1.png"/>
+						<div class = "CardTextContainer">
+							<h2 class = "CardsH2"> My Videogame </h2>
+							<p class = "CardsP"> Metroidvania demo I made using Unity, Photoshop and After Effects</p>
+						</div>
+					</div>
+					<div class = "CardsCard prevent-select" draggable = "false" id="butler">
+						<img class = "CardsIcon prevent-drag" src="./ButlerButton.png"/>
+						<div class = "CardTextContainer">
+							<h2 class = "CardsH2"> It's Always The Butler </h2>
+							<p class = "CardsP"> A point and click game I made in a month for the game off 2022 challenge</p>
+						</div>
+					</div>
+					<div class = "CardsCard prevent-select" draggable = "false" id="meteo">
+						<img class = "CardsIcon prevent-drag" src="./sun.webp"/>
+						<div class = "CardTextContainer">
+							<h2 class = "CardsH2"> Meteo Website </h2>
+							<p class = "CardsP"> A meteo website made with react for a university's project, hosted on free plan on render.com so it needs some time to load</p>
+						</div>
+					</div>
+				</div>
+				<i id="right" class="fa-solid fa-angle-right" style="background:white; line-height: 46px; text-align:center; font-size:1.2rem; font-family: Font Awesome 6 Free; font-weight: 900; font-style:normal"></i>
+			</div>
+		</div>
+		</div>
+		`
+		document.getElementById("containerProjects").style.cssText= `
+			display:flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			pointer-events: auto;
+			position:relative;
+			margin:auto;
+			width:510px;
+		`	
+		containerProject.style.width = "510px";	
+		var cardContainer = document.getElementsByClassName("CardsCard");
+		for(var i= 0; i<cardContainer.length;i++){
+			cardContainer[i].style.textAlign = "center";
+		}
+		var textContainers = document.getElementsByClassName("CardTextContainer");
+		for(var i=0; i<textContainers.length; i++){
+			textContainers[i].style.textAlign = "center";
+		}
+
+		var arrowRight = document.getElementById("right"); 
+		var arrowLeft = document.getElementById("left");
+		arrowRight.style.fontFamily = '"Font Awesome 6 Free';
+		arrowRight.style.lineHeight = '46px';
+		arrowLeft.style.fontFamily = '"Font Awesome 6 Free';
+		arrowLeft.style.lineHeight = '46px';
+
+
+		initScriptValues();
+		addProjectLinks();
+	}
+
+	function initCurriculumPage(){
+		var curriculum = document.getElementsByClassName("curriculumDownload");
+		var reference = document.getElementsByClassName("referenceDownload");
+
+		for(var i=0;i<curriculum.length;i++){
+			curriculum[i].addEventListener('click', function() {     
+				downloadDocument("curriculum.pdf");
+			})
+			reference[i].addEventListener('click', function() {     
+				downloadDocument("reference.pdf");
+			})
+		}
+	}
+
+	function downloadDocument(element){
+		var a = document.createElement('a')
+		a.href = element
+		a.download = element.split('/').pop()
+		document.body.appendChild(a)
+		a.click()
+		document.body.removeChild(a)
+	}
+
+	function initContactPage(){
+		addContactLinks();
+		var containerContact = document.getElementById("containerMail");
+		containerContact.style.textAlign="center";
+		containerContact.innerHTML=` 
+		<div class="form-container">
+            <form onSubmit="doSomething()" id="my-form">
+				<div style="display:flex">
+					<div class="name-form">
+						<input type="text" class="form-control-name" placeholder="Name" name="name" id="name"/>
+					</div>
+					<div class="email-form">
+						<input type="text" class="form-control-email" placeholder="Email" name="email" id="email"/>
+					</div>
+				</div>
+                <div class="subject-form">
+                    <input type="text" class="form-control-subject" placeholder="Subject" name="subject" id="subject"/>
+                </div>
+				<div class="message-form">
+                    <textarea class="form-control-message" placeholder="Message" name="message" id="message"></textarea>
+                </div>
+				<button class='form-input-btn' type='button' onclick="doSomething()">
+                    Send Email
+                </button>
+            </form>
+        </div>
+		`
+
+	}
+
+	function doSomething(){
+		console.log("katchaturia");
+		var name = document.getElementById("name")
+		var email = document.getElementById("email")
+		var subject = document.getElementById("subject")
+		var message = document.getElementById("message");
+		var form = document.getElementById("my-form")
+		console.log(name.value);
+		console.log(email.value);
+		console.log(subject.value);
+		console.log(message.value);
+		if(name.value===''||name.value===null){
+			alert("Please Fill All The Parameters")
+			return;
+		}
+		if(email.value===''||email.value===null){
+			alert("Please Fill All The Parameters")
+			return;
+		}
+		if(subject.value===''||subject.value===null){
+			alert("Please Fill All The Parameters")
+			return;
+		}
+		if(message.value===''||message.value===null){
+			alert("Please Fill All The Parameters")
+			return;
+		}
+		emailjs.sendForm('gmail', 'template_3nq90h8', form, 'user_Me4wHDtb2vDEdoNGE0mAY')
+			.then((result) => {
+				console.log(result.text);
+			}, (error) => {
+				console.log(error.text);
+			});
+		form.reset();
+		alert("Your mail has been sent, thanks for reaching me out.");
+	}
+
+  </script>
+  <script src = "script.js" defer></script>
+</html>
