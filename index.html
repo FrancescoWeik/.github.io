@@ -372,6 +372,10 @@ I like to try new things and push my limits, for that reason I created this webs
 		initProjectPage();
 		initContactPage();
 		initCurriculumPage();
+		var titles = document.getElementsByClassName ("pageTitleText");
+		for(var i=0;i<titles.length;i++){
+			titles[i].style.display = "inline-block";
+		}
 	}
 
 	function initProjectPage(){
