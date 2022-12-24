@@ -464,9 +464,11 @@ I like to try new things and push my limits, for that reason I created this webs
 		var reference = document.getElementsByClassName("referenceDownload");
 
 		for(var i=0;i<curriculum.length;i++){
+			curriculum[i].style.cursor = "pointer";
 			curriculum[i].addEventListener('click', function() {     
 				downloadDocument("curriculum.pdf");
 			})
+			reference[i].style.cursor = "pointer";
 			reference[i].addEventListener('click', function() {     
 				downloadDocument("reference.pdf");
 			})
