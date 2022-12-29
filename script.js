@@ -85,7 +85,7 @@ function addProjectLinks(){
     var meteo = document.getElementById("meteo");
 
     addListenerToCard(bike,"https://github.com/DigitalCommonsLab/bikingimprover");
-    addListenerToCard(myGame, "https://drive.google.com/file/d/1ljFnAaD6N54jayCsCuXD7YsmjSy-izgf/view?usp=sharing");
+    addListenerToCard(myGame, "https://francescow.itch.io/my-videogame");
     addListenerToCard(butler,"https://francescow.itch.io/its-always-the-butler");
     addListenerToCard(meteo, "https://meteo-website-group19.onrender.com/");
 }
