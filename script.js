@@ -83,11 +83,13 @@ function addProjectLinks(){
     var myGame = document.getElementById("my-videogame");
     var  butler = document.getElementById("butler");
     var meteo = document.getElementById("meteo");
+    var pip = document.getElementById("Pip");
 
     addListenerToCard(bike,"https://github.com/DigitalCommonsLab/bikingimprover");
     addListenerToCard(myGame, "https://francescow.itch.io/my-videogame");
     addListenerToCard(butler,"https://francescow.itch.io/its-always-the-butler");
     addListenerToCard(meteo, "https://meteo-website-group19.onrender.com/");
+    addListenerToCard(pip, "https://play.google.com/store/apps/details?id=com.RatMood.PipThePirate");
 }
 
 function addContactLinks(){
